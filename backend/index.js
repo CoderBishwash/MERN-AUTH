@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
+
 const authRouter = require("./routes/authRouter");
+const productRouter = require("./routes/productRouter");
 
 // middleware to use environment variables
 require("dotenv").config();
@@ -23,6 +25,7 @@ app.use(cors());
 
 // Routes
 app.use("/auth", authRouter);
+app.use("/products", productRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running at PORT: ${PORT}`);
